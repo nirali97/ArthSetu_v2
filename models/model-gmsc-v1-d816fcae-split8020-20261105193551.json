@@ -1,0 +1,257 @@
+{
+  "model_version": "model-gmsc-v1-d816fcae-split8020-20261105193551",
+  "dataset_version": "gmsc-v1-d816fcae-split8020",
+  "trained_utc": "2026-11-05T19:35:51.237352+00:00",
+  "random_seed": 42,
+  "split_policy": "stratified 80/20 train/test on cleaned+deduplicated cs-training.csv; validation = 5-fold CV inside train; test untouched until final evaluation",
+  "xgboost_smote_status": "not_installed",
+  "library_versions": {
+    "scikit_learn": "1.9.1",
+    "pandas": "3.0.5",
+    "numpy": "2.5.3"
+  },
+  "features": [
+    "RevolvingUtilizationOfUnsecuredLines",
+    "age",
+    "MonthlyIncome",
+    "NumberOfOpenCreditLinesAndLoans",
+    "NumberRealEstateLoansOrLines",
+    "NumberOfDependents",
+    "NumberOfTime30-59DaysPastDueNotWorse",
+    "NumberOfTime60-89DaysPastDueNotWorse",
+    "NumberOfTimes90DaysLate",
+    "income_reported",
+    "debt_ratio_valid",
+    "est_monthly_obligations",
+    "income_per_household_member",
+    "total_past_due_events",
+    "has_90plus_delinquency",
+    "utilization_over_limit"
+  ],
+  "algorithm": "hist_gradient_boosting",
+  "resampling": "none",
+  "selected_model": "hist_gradient_boosting",
+  "cv_5fold_train_oof": {
+    "logistic_regression_baseline": {
+      "oof_roc_auc": 0.8557030355490199,
+      "oof_pr_auc": 0.3746727198877392
+    },
+    "hist_gradient_boosting": {
+      "oof_roc_auc": 0.8645804764111973,
+      "oof_pr_auc": 0.3959387390412922
+    },
+    "hist_gradient_boosting_smote": {
+      "oof_roc_auc": 0.8533267511594589,
+      "oof_pr_auc": 0.3657051341876746
+    }
+  },
+  "cv_oof_calibrated_at_threshold": {
+    "threshold": 0.233901,
+    "accuracy": 0.9165606800990695,
+    "precision": 0.4007876401090579,
+    "recall": 0.4956912701386287,
+    "f1": 0.44321608040201005,
+    "roc_auc": 0.8652395679944794,
+    "pr_auc": 0.39004169096379165,
+    "specificity": 0.946782655486301,
+    "false_positive_rate": 0.05321734451369894,
+    "false_negative_rate": 0.5043087298613713,
+    "brier": 0.04911455829237176,
+    "confusion_matrix": {
+      "tn": 105571,
+      "fp": 5934,
+      "fn": 4038,
+      "tp": 3969
+    },
+    "n": 119512,
+    "positives": 8007
+  },
+  "train_in_sample": {
+    "threshold": 0.233901,
+    "accuracy": 0.9179914987616307,
+    "precision": 0.40984924623115576,
+    "recall": 0.5093043586861496,
+    "f1": 0.45419613521189506,
+    "roc_auc": 0.8726063407580562,
+    "pr_auc": 0.4103563430744537,
+    "specificity": 0.9473386843639299,
+    "false_positive_rate": 0.052661315636070134,
+    "false_negative_rate": 0.4906956413138504,
+    "brier": 0.04827667820833461,
+    "confusion_matrix": {
+      "tn": 105633,
+      "fp": 5872,
+      "fn": 3929,
+      "tp": 4078
+    },
+    "n": 119512,
+    "positives": 8007
+  },
+  "test": {
+    "threshold": 0.233901,
+    "accuracy": 0.9185353772006158,
+    "precision": 0.41394422310756973,
+    "recall": 0.518981018981019,
+    "f1": 0.460549645390071,
+    "roc_auc": 0.8666125182752389,
+    "pr_auc": 0.4095867171703494,
+    "specificity": 0.9472305926244798,
+    "false_positive_rate": 0.05276940737552016,
+    "false_negative_rate": 0.481018981018981,
+    "brier": 0.04829277269606785,
+    "confusion_matrix": {
+      "tn": 26405,
+      "fp": 1471,
+      "fn": 963,
+      "tp": 1039
+    },
+    "n": 29878,
+    "positives": 2002
+  },
+  "gb_best_params": {
+    "l2_regularization": 1.0,
+    "learning_rate": 0.05,
+    "max_depth": 3,
+    "min_samples_leaf": 100
+  },
+  "reliability_test_deciles": [
+    {
+      "mean_predicted": 0.003494288802097333,
+      "observed_rate": 0.004640371229698376,
+      "n": 3017
+    },
+    {
+      "mean_predicted": 0.00592874741410933,
+      "observed_rate": 0.00825082508250825,
+      "n": 4242
+    },
+    {
+      "mean_predicted": 0.009364370261170133,
+      "observed_rate": 0.010360547036883548,
+      "n": 2413
+    },
+    {
+      "mean_predicted": 0.011193176235590739,
+      "observed_rate": 0.010912265386294195,
+      "n": 2291
+    },
+    {
+      "mean_predicted": 0.018163988317117685,
+      "observed_rate": 0.01964870497171777,
+      "n": 3359
+    },
+    {
+      "mean_predicted": 0.029787790520034968,
+      "observed_rate": 0.02689415847310584,
+      "n": 3458
+    },
+    {
+      "mean_predicted": 0.04636673187422072,
+      "observed_rate": 0.038227938549481956,
+      "n": 2799
+    },
+    {
+      "mean_predicted": 0.07214709101333293,
+      "observed_rate": 0.07078559738134206,
+      "n": 2444
+    },
+    {
+      "mean_predicted": 0.12801905524483256,
+      "observed_rate": 0.11920529801324503,
+      "n": 3020
+    },
+    {
+      "mean_predicted": 0.38302451789998043,
+      "observed_rate": 0.38941798941798944,
+      "n": 2835
+    }
+  ],
+  "global_importance": [
+    {
+      "feature": "total_past_due_events",
+      "mean_abs": 0.02921845902592483,
+      "mean_signed": 0.0070531984734369165
+    },
+    {
+      "feature": "RevolvingUtilizationOfUnsecuredLines",
+      "mean_abs": 0.025463569306797183,
+      "mean_signed": 0.014932883742614856
+    },
+    {
+      "feature": "age",
+      "mean_abs": 0.007917560653439782,
+      "mean_signed": 0.0008129166290668329
+    },
+    {
+      "feature": "NumberOfOpenCreditLinesAndLoans",
+      "mean_abs": 0.005921112700998961,
+      "mean_signed": 0.003172748972021391
+    },
+    {
+      "feature": "debt_ratio_valid",
+      "mean_abs": 0.005024893765543071,
+      "mean_signed": 0.0017651281873842888
+    },
+    {
+      "feature": "NumberOfTimes90DaysLate",
+      "mean_abs": 0.003722778754671447,
+      "mean_signed": 0.003722778754671447
+    },
+    {
+      "feature": "NumberRealEstateLoansOrLines",
+      "mean_abs": 0.003052045467246566,
+      "mean_signed": 5.7272221669562964e-05
+    },
+    {
+      "feature": "MonthlyIncome",
+      "mean_abs": 0.002562057531400854,
+      "mean_signed": -0.0006000472616292204
+    },
+    {
+      "feature": "est_monthly_obligations",
+      "mean_abs": 0.0021164485194920457,
+      "mean_signed": 0.000166628667536575
+    },
+    {
+      "feature": "utilization_over_limit",
+      "mean_abs": 0.0018995402616796137,
+      "mean_signed": -0.0017017743422525155
+    },
+    {
+      "feature": "NumberOfTime60-89DaysPastDueNotWorse",
+      "mean_abs": 0.0018815890447649475,
+      "mean_signed": 0.0018815890447649475
+    },
+    {
+      "feature": "NumberOfTime30-59DaysPastDueNotWorse",
+      "mean_abs": 0.0013501125231619366,
+      "mean_signed": -0.0004627562813500622
+    },
+    {
+      "feature": "income_per_household_member",
+      "mean_abs": 0.0012217729127845466,
+      "mean_signed": 4.142799589309494e-05
+    },
+    {
+      "feature": "NumberOfDependents",
+      "mean_abs": 0.0002472495857232809,
+      "mean_signed": 0.00012592123240308967
+    },
+    {
+      "feature": "income_reported",
+      "mean_abs": 0.0,
+      "mean_signed": 0.0
+    },
+    {
+      "feature": "has_90plus_delinquency",
+      "mean_abs": 0.0,
+      "mean_signed": 0.0
+    }
+  ],
+  "base_rate_train": 0.06699745632237766,
+  "decision_threshold_rule": "maximise F1 on calibrated out-of-fold train predictions",
+  "risk_bands": {
+    "low_max": 0.05,
+    "high_min": 0.2339
+  }
+}

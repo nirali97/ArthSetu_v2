@@ -1,0 +1,13 @@
+# Mutually compatible set for training XGBoost + SMOTE and running the app. Use a fresh virtual environment:
+#   python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements-pinned.txt
+scikit-learn==1.4.2
+numpy>=1.26,<2
+pandas>=2.2,<2.3
+scipy>=1.11,<1.14
+xgboost==2.0.3
+imbalanced-learn==0.12.2
+starlette>=0.40
+uvicorn>=0.30
+pydantic>=2.6
+joblib>=1.4
+pytest>=8

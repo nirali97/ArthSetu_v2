@@ -1,0 +1,5 @@
+# Installing these makes train.py add the "xgboost_smote" candidate automatically (imblearn Pipeline, SMOTE inside CV folds).
+# That code path is UNTESTED (these packages were not installable where the project was built).
+xgboost>=2.0
+imbalanced-learn>=0.12
+# shap>=0.45   # not wired in: the app uses its own exactly-additive Shapley estimator (backend/ml/explain.py)

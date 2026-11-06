@@ -1,0 +1,24 @@
+# secrets
+.env
+.env.*
+!.env.example
+
+# data (Kaggle competition data: do not redistribute) and model artifacts
+data/raw/
+data/processed/
+models/*.joblib
+models/*.pkl
+
+# python / node
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+node_modules/
+dist/
+
+# local db
+data/*.db
+data/*.db-*
+submissions/
